@@ -1,0 +1,17 @@
+@import "./colors";
+.btn {
+  padding: 1.6rem 4rem;
+  border-radius: 3.2rem;
+  background-color: $accent;
+  color: $secondary;
+  border: none;
+  font-family: Roboto;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($accent, 5);
+  }
+}
