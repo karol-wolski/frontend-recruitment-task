@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  display: flex;
+  width: min(100%, 144rem);
+  padding: 9.6rem 0 10.4rem;
+  flex-direction: column;
+  gap: 10rem;
+  align-items: center;
+  margin: 0 auto;
+}
