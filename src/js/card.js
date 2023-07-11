@@ -1,7 +1,8 @@
 import { generateRandomNumber } from "./helpers/generateRandomNumber";
+import { modal } from "./modal";
 
-export const createCard = ({ title, desc, img, imgAltText }) => {
-  const btnId = generateRandomNumber(1, 10000);
+export const createCard = (id, { title, desc, img, imgAltText }) => {
+  const btnId = `btn_${id}`;
   const html = `
     <div class="card">
       <img
@@ -12,13 +13,17 @@ export const createCard = ({ title, desc, img, imgAltText }) => {
       <div class="card__container">
         <h2 class="card__title">${title}</h2>
         <p class="card__desc">${desc}</p>
-        <button id='btn_${btnId}' class="btn">Button</button>
+        <button id='${btnId}' class="btn">Button</button>
       </div>
   `;
   document.querySelector(".container").insertAdjacentHTML("beforeend", html);
 
-  const btn = document.querySelector(`#btn_${btnId}`);
+  const btn = document.querySelector(`#${btnId}`);
   btn.addEventListener("click", () => {
-    console.log({ btnId });
+    localStorage.setItem(
+      `${btnId}`,
+      parseInt(localStorage.getItem(`${btnId}`)) + 1 || 1
+    );
+    modal(`${btnId}`);
   });
 };
